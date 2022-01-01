@@ -1,8 +1,9 @@
 #' Obtain passing networks for both teams by match
 #'
-#' @param home Name of home team
-#' @param away Name of away team
+#' @param home_team Name of home team
+#' @param away_team Name of away team
 #' @return Named list of two igraph objects.
+#' @importFrom stats setNames
 #' @examples
 #' \dontrun{
 #' passes_by_match('Italy', 'England')

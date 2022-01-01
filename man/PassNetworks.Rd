@@ -5,7 +5,7 @@
 \alias{PassNetworks}
 \title{UEFA Euro 2020 Pass networks}
 \format{
-A data drame with 51 rows and 4 variables
+A data frame with 51 rows and 4 variables
 \describe{
   \item{home}{home team name}
   \item{away}{away team name}
@@ -15,19 +15,19 @@ A data drame with 51 rows and 4 variables
   \bold{Attributes}
     \describe{
        \item{name}{Player name}
-       \item{mins_played}{Minutes played until/after subsitution}
+       \item{mins_played}{Minutes played until/after substitution}
        \item{pc_long}{Number of completed long passes}
-       \item{pa_long}{Number of attemted long passes}
+       \item{pa_long}{Number of attempted long passes}
        \item{pc_medium}{Number of completed medium passes}
-       \item{pa_medium}{Number of attemted medium passes}
+       \item{pa_medium}{Number of attempted medium passes}
        \item{pc_short}{Number of completed short passes}
-       \item{pa_short}{Number of attemted short passes}
+       \item{pa_short}{Number of attempted short passes}
        \item{pc_total}{Number of completed passes}
-       \item{pa_total}{Number of attemted passes}
+       \item{pa_total}{Number of attempted passes}
        \item{pass_accuracy_total}{Completed passes / attempted passes}
     }
   }
-  \item{away_graph}{eauivalent of home_graph for away team}
+  \item{away_graph}{equivalent of home_graph for away team}
 }
 }
 \usage{

@@ -7,9 +7,9 @@
 passes_by_match(home_team, away_team)
 }
 \arguments{
-\item{home}{Name of home team}
+\item{home_team}{Name of home team}
 
-\item{away}{Name of away team}
+\item{away_team}{Name of away team}
 }
 \value{
 Named list of two igraph objects.

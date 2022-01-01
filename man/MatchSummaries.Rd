@@ -5,7 +5,7 @@
 \alias{MatchSummaries}
 \title{UEFA Euro 2020 Match summaries}
 \format{
-A data drame with 51 rows and 15 variables
+A data frame with 51 rows and 15 variables
 \describe{
   \item{matchday}{numeric from 1 (1st group phase match) to 7 (final)}
   \item{date}{date of match}
@@ -16,10 +16,10 @@ A data drame with 51 rows and 15 variables
   \item{had_penalties}{logical indicator for penalty shootout}
   \item{sc_pen_home}{number of score penalties for the home team}
   \item{sc_pen_away}{number of score penalties for the away team}
-  \item{pos_home}{ball posession for the home team}
-  \item{pos_away}{ball posession for the home team}
-  \item{total_shots_home}{number of attemtpted shots for the home team}
-  \item{total_shots_away}{number of attemtpted shots for the away team}
+  \item{pos_home}{ball possession for the home team}
+  \item{pos_away}{ball possession for the home team}
+  \item{total_shots_home}{number of attempted shots for the home team}
+  \item{total_shots_away}{number of attempted shots for the away team}
   \item{shots_on_target_home}{number of shots on target for the home team}
   \item{shots_on_target_away}{number of shots on target for the away team}
 }
