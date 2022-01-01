@@ -1,0 +1,108 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  fig.height=6,
+  fig.width=9, 
+  dpi = 600, 
+  out.width = "100%"
+)
+```
+
+# Euro2020PassNetworks
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+This package provides UEFA Euro 2020 data, primarily focused on passing data.
+
+## Installation
+
+You can install the development version of Euro2020PassNetworks
+
+``` r
+require(remotes)
+remotes::install_github("SinanPolatoglu/Euro2020PassNetworks")
+```
+
+## Data
+
+There are two datasets included:
+
+1. `MatchSummaries`: data frame overview stats for each match
+2. `PassNetwork`: data frame containing `igraph` directed passing networks
+
+
+```{r example}
+library(Euro2020PassNetworks)
+MatchSummaries
+```
+```{r}
+PassNetworks
+```
+
+## Usage
+
+Two helper functions are included to obtain lists of `igraph` objects: 
+
+- `passes_by_match`
+- `passes_by_team`
+
+```{r}
+bel_ita = passes_by_match('Belgium', 'Italy')
+str(bel_ita, max.level = 1)
+```
+
+```{r}
+ita = passes_by_team('Italy')
+str(ita, max.level = 1)
+```
+Each `igraph` object is a directed graph of completed passes 
+during a match with several node attributes on passing statistics. 
+See `help("PassNetworks")` for details.
+
+```{r}
+bel_ita$Belgium
+```
+
+In combination with R's network analysis libraries, these passing 
+networks can be interesting to get acquainted with network analysis.
+
+```{r graph-bel, warning=FALSE, message=FALSE}
+require(ggraph)
+require(igraph)
+
+G1 = bel_ita$Belgium
+G2 = bel_ita$Italy
+
+G1 = igraph::delete.vertices(G1, V(G1)$mins_played <= 70)
+G2 = igraph::delete.vertices(G2, V(G2)$mins_played <= 70)
+
+visualise_passes = function(G){
+  set.seed(2020)
+  ggraph(G, layout = 'fr')+
+  geom_edge_fan(
+    aes(width=completed_passes), arrow = arrow(length = unit(2, 'mm')),
+    end_cap = circle(3, 'mm'), alpha = .5
+  )+
+  scale_edge_width(range = c(.1, 3))+
+  geom_node_point()+
+  geom_node_label(aes(label=gsub('^[[:alpha:]]+ ', '', name)), size=3, repel = TRUE) +
+  theme_graph()
+}
+
+visualise_passes(G1)
+```
+
+```{r graph-ita, warning=FALSE}
+visualise_passes(G2)
+```
+
+
