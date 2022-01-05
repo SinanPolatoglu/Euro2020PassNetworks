@@ -3,9 +3,7 @@
 #' @param team Name of team to return passing networks for
 #' @return Named list of n igraph objects sorted by matchday.
 #' @examples
-#' \dontrun{
 #' passes_by_team('Italy')
-#' }
 #' @export
 passes_by_team <- function(team) {
 

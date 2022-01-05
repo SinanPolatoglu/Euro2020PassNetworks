@@ -5,9 +5,7 @@
 #' @return Named list of two igraph objects.
 #' @importFrom stats setNames
 #' @examples
-#' \dontrun{
 #' passes_by_match('Italy', 'England')
-#' }
 #' @export
 passes_by_match <- function(home_team, away_team) {
   matched_row = PassNetworks[
